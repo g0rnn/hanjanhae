@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.hanjanhae.ui.theme.HanjanhaeTheme
-import com.example.hanjanhae.ui.theme.Subcribe2Screen
+import com.example.hanjanhae.ui.theme.Subcribe3creen
 import com.example.hanjanhae.ui.theme.SubcribeScreen
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Subcribe2Screen()                }
+                }
             }
         }
     }
@@ -42,5 +42,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     HanjanhaeTheme {
-        Subcribe2Screen()    }
+
+            }
 }

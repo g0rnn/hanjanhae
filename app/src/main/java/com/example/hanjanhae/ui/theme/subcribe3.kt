@@ -63,7 +63,14 @@ fun Subcribe3creen(){
             fontSize = (18.sp)
             )
 
-        CustomOutlinedTextField(detail = "이름을 입력해주세요")
+        Spacer(modifier = Modifier.height(8.dp))
+
+        CustomOutlinedTextField(detail = "배송받을 주소를 입력해주세요")
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        CustomOutlinedTextField(detail = "상세 주소를 입력해주세요")
+
 
 
     }

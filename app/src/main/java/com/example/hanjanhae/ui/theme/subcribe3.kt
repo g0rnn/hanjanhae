@@ -240,12 +240,12 @@ fun PaymentSummaryBox() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "결제상품이름명",
+                    text = "1인권",
                     color = Color.Gray,
                     fontSize = 16.sp
                 )
                 Text(
-                    text = "200,000원",
+                    text = "100,000원",
                     color = Color.Gray,
                     fontSize = 16.sp
                 )
@@ -265,7 +265,7 @@ fun PaymentSummaryBox() {
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "200,000원",
+                    text = "100,000원",
                     color = Color.Black,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold

@@ -56,9 +56,10 @@ fun MainApp() {
                     fontSize = 20.sp
                 )
                 Spacer(modifier = Modifier.weight(1f))
-                Image(
+                Icon(
                     painter = painterResource(R.drawable.mdi_post_outline),
                     modifier = Modifier.size(28.dp),
+                    tint = Color(0xFFE67171),
                     contentDescription = "code"
                 )
                 Icon(
@@ -68,6 +69,7 @@ fun MainApp() {
                     tint = Color(0xFFE67171)
                     )
             }
+
             Surface(
                 onClick = { /*TODO*/ },
                 modifier = Modifier.padding(bottom = 16.dp),
@@ -79,6 +81,7 @@ fun MainApp() {
                     modifier = Modifier.size(298.dp, 381.dp)
                 )
             }
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -97,6 +100,7 @@ fun MainApp() {
                     fontSize = 24.sp,
                 )
             }
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -124,6 +128,7 @@ fun MainApp() {
                     color = Color(0xFF929292)
                 )
             }
+
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFDC5555)),
@@ -132,6 +137,7 @@ fun MainApp() {
                 ) {
                 Text("쉬어가기")
             }
+
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(
@@ -143,6 +149,7 @@ fun MainApp() {
             ) {
                 Text("추가 구매하기")
             }
+
             Column(modifier = Modifier.padding(top = 32.dp)) {
                 Text(
                     text = "향미 그래프",

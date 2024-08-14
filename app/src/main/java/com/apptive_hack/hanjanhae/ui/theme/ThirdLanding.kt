@@ -47,7 +47,7 @@ fun ThirdLand(navController: NavController){
                 .width(300.dp)
                 .height(39.dp)
                 .align(Alignment.BottomCenter)
-                .offset(y=(-184).dp),
+                .offset(y=(-190).dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.White,
             ),

@@ -161,7 +161,7 @@ fun AlcholDescription(navController: NavController) {
             modifier = Modifier
                 .padding(top = 10.dp, bottom = 30.dp)
                 .width(296.dp)
-                .height(125.dp)
+                .height(150.dp)
                 .align(Alignment.CenterHorizontally)
         )
     }

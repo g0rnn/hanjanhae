@@ -32,7 +32,9 @@ import com.apptive_hack.hanjanhae.data.Post
 @Composable
 fun Feed(posts: List<Post>) {
     Column(
-        modifier = Modifier.padding(top = 60.dp, start = 20.dp, end = 20.dp)
+        modifier = Modifier
+            .padding(top = 60.dp, start = 20.dp, end = 20.dp)
+            .navigationBarsPadding()
     ) {
         // Independent Row
         Row(
@@ -51,7 +53,7 @@ fun Feed(posts: List<Post>) {
                 color = Color(0xFFDC5555),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                )
+            )
         }
 
         LazyColumn {
@@ -68,14 +70,14 @@ fun PostItem(initialPost: Post) {
 
     Column(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(top = 20.dp, start = 8.dp, end = 8.dp, bottom = 8.dp)
             .background(Color.White, RoundedCornerShape(8.dp))
             .clickable { /* Handle post click */ }
             .fillMaxWidth()
     ) {
         Image(
             painter = painterResource(
-                when(postState.value.img) {
+                when (postState.value.img) {
                     "img1" -> R.drawable.img1
                     "img2" -> R.drawable.img2
                     "img3" -> R.drawable.img3
@@ -85,8 +87,8 @@ fun PostItem(initialPost: Post) {
             contentDescription = "Post image",
             modifier = Modifier
                 .fillMaxWidth()
-                .height(250.dp),
-            contentScale = ContentScale.Fit
+                .height(300.dp),
+            contentScale = ContentScale.FillBounds
         )
 
         Row(
@@ -96,14 +98,16 @@ fun PostItem(initialPost: Post) {
             horizontalArrangement = Arrangement.Start
         ) {
             Icon(
-                imageVector = if(!postState.value.liked) Icons.Filled.FavoriteBorder else Icons.Filled.Favorite,
+                imageVector = if (!postState.value.liked) Icons.Filled.FavoriteBorder else Icons.Filled.Favorite,
                 contentDescription = "likes",
                 modifier = Modifier
                     .size(20.dp)
-                    .clickable { postState.value = postState.value.copy(
-                        liked = !postState.value.liked,
-                        likes = if (!postState.value.liked) postState.value.likes + 1 else postState.value.likes - 1
-                    ) }
+                    .clickable {
+                        postState.value = postState.value.copy(
+                            liked = !postState.value.liked,
+                            likes = if (!postState.value.liked) postState.value.likes + 1 else postState.value.likes - 1
+                        )
+                    }
             )
             Spacer(modifier = Modifier.width(2.dp))
             Text(text = "${postState.value.likes}", fontWeight = FontWeight.Bold)
@@ -126,7 +130,7 @@ fun PostItem(initialPost: Post) {
         Text(
             text = postState.value.date,
             fontSize = 12.sp,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(start = 8.dp)
         )
     }
 }

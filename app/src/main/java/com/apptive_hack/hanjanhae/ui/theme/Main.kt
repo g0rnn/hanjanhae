@@ -2,6 +2,8 @@ package com.apptive_hack.hanjanhae.ui.theme
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,17 +18,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.apptive_hack.hanjanhae.R
 
 @Composable
-fun MainApp() {
+fun MainApp(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -58,34 +62,35 @@ fun MainApp() {
                 Spacer(modifier = Modifier.weight(1f))
                 Icon(
                     painter = painterResource(R.drawable.mdi_post_outline),
-                    modifier = Modifier.size(28.dp),
+                    modifier = Modifier
+                        .size(28.dp)
+                        .clickable {
+                            navController.navigate("feed")
+                        },
                     tint = Color(0xFFE67171),
-                    contentDescription = "code"
+                    contentDescription = "description"
                 )
                 Icon(
                     imageVector = Icons.Filled.DateRange,
                     contentDescription = "date",
                     modifier = Modifier.size(28.dp),
                     tint = Color(0xFFE67171)
-                    )
-            }
-
-            Surface(
-                onClick = { /*TODO*/ },
-                modifier = Modifier.padding(bottom = 16.dp),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.august_drink),
-                    contentDescription = "이번 달 술 사진",
-                    modifier = Modifier.size(298.dp, 381.dp)
                 )
             }
+
+            Image(
+                painter = painterResource(id = R.drawable.august_drink),
+                contentDescription = "이번 달 술 사진",
+                modifier = Modifier
+                    .size(298.dp, 381.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .clip(RoundedCornerShape(20.dp))
+            )
 
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 4.dp),
+                    .padding(top = 16.dp, bottom = 4.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.Bottom,
             ) {
@@ -132,25 +137,33 @@ fun MainApp() {
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFDC5555)),
-                modifier = Modifier.width(298.dp),
+                modifier = Modifier
+                    .width(298.dp)
+                    .align(Alignment.CenterHorizontally),
 
                 ) {
                 Text("쉬어가기")
             }
 
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate("subscribe") },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFFFFFFF),
                     contentColor = Color(0xFFE67171)
                 ),
                 border = BorderStroke(1.dp, Color(0xFFE67171)),
-                modifier = Modifier.width(298.dp)
+                modifier = Modifier
+                    .width(298.dp)
+                    .align(Alignment.CenterHorizontally)
             ) {
                 Text("추가 구매하기")
             }
 
-            Column(modifier = Modifier.padding(top = 32.dp)) {
+            Column(
+                modifier = Modifier
+                    .padding(top = 32.dp)
+                    .align(Alignment.CenterHorizontally)
+            ) {
                 Text(
                     text = "향미 그래프",
                     color = Color(0xFFE67171)
@@ -163,7 +176,7 @@ fun MainApp() {
 
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.graph1),
+                        painter = painterResource(id = R.drawable.graph),
                         contentDescription = "향미 그래프",
                         modifier = Modifier.fillMaxSize(),
                     )
@@ -177,6 +190,6 @@ fun MainApp() {
 @Composable
 fun GreetingPreview() {
     HanjanhaeTheme {
-        MainApp()
+        MainApp(navController = rememberNavController())
     }
 }

@@ -68,7 +68,7 @@ fun PostItem(initialPost: Post) {
 
     Column(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(top = 20.dp, start = 8.dp, end = 8.dp, bottom = 8.dp)
             .background(Color.White, RoundedCornerShape(8.dp))
             .clickable { /* Handle post click */ }
             .fillMaxWidth()
@@ -126,7 +126,7 @@ fun PostItem(initialPost: Post) {
         Text(
             text = postState.value.date,
             fontSize = 12.sp,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(start = 8.dp)
         )
     }
 }

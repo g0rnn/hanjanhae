@@ -95,10 +95,11 @@ fun PostItem(initialPost: Post) {
             modifier = Modifier
                 .padding(top = 8.dp, start = 8.dp, end = 8.dp)
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Start
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.Bottom
         ) {
             Icon(
-                imageVector = if (!postState.value.liked) Icons.Filled.FavoriteBorder else Icons.Filled.Favorite,
+                painter = painterResource(if (!postState.value.liked) R.drawable.heart else R.drawable.fill_heart),
                 contentDescription = "likes",
                 modifier = Modifier
                     .size(20.dp)
@@ -116,7 +117,7 @@ fun PostItem(initialPost: Post) {
             Icon(
                 painter = painterResource(id = R.drawable.comment),
                 contentDescription = "comment",
-                modifier = Modifier.size(16.dp)
+                modifier = Modifier.size(18.dp)
             )
             Spacer(modifier = Modifier.width(2.dp))
             Text(text = "${postState.value.comments}")
